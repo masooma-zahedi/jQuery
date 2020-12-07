@@ -5,14 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="js.jQuery/jquery-1.12.4.min.js"></script>
+    <style>
+        *{box-sizing: border-box;}
+        body{
+            margin: 0;
+        }
+        div{
+            background-color: rgb(191, 243, 226);
+            margin: 10px;
+            width: 400px;
+            height: 100px;
+            padding: 10px;
+        }
+    </style>
     <script>
         $(document).ready(function(){
-            $('#div1').html('<h1>hello</h1>')
+            // $('#div1').html('<h1>hello</h1>');
+            // ==============================
+            // $('#btn1').click(function(){
+            //     $('#div1').hide();
+            // })
+            // ==================
+            // $('.mydiv').click(function(){
+            //     $(this).hide();
+            // })
+            // =========================
+            // $('#div2').dblclick(function(){
+            //     $(this).hide();
+            // })
+            // ========================
+            $('#div1').mouseenter(function(){
+                $(this).css('background-color',"#c23987")
+            })
+            $('#div1').mouseleave(function(){
+                $(this).css('background-color','#33ee99')
+            })
+            // ==================================
+            $('#div2').hover(function(){
+                $(this).css('font-size',"30px")
+            },
+            function(){
+                $(this).css('text-decoration',"underline");
+                $(this).css('font-size','16px');
+            });
+            // =================================
+            $('.mydiv').on({'click': function(){
+                $(this).css('color','#55bc90')
+            },
+            'mouseenter' : function(){
+                $(this).css('font-size','30px')
+            },
+            'mouseleave': function(){
+                $(this).css('color',"")
+            }
+            })
+            // ================================
+            
+
+
 
         })
     </script>
 </head>
 <body>
-    <div id="div1"></div>
+    <button id="btn1">click me</button>
+    <div id="div1">(id = div1)</div>
+    <div id="div2">HELLO2 (id = div2)</div>
+    <div class="mydiv">BAY BAY (class=mydiv)</div>
+    <div class='mydiv'>HOW ARE YOU? (class=mydiv)</div>
 </body>
 </html>

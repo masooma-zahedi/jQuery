@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effects in jQuery</title>
+    <script src="js.jQuery/jquery-1.12.4.min.js"></script>
+    <style>
+        *{box-sizing: border-box;}
+        body{
+            margin: 0;
+        }
+        div{
+            background-color: rgb(191, 243, 226);
+            margin: 10px;
+            width: 400px;
+            height: 100px;
+            padding: 10px;
+        }
+        #div4{
+            position: relative;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $('#btnHide').click(function(){
+                $('#div1').hide(1000)
+            })
+
+            $('#btnShow').click(function(){
+                $('#div1').show(1000);
+            })
+
+            $('#btnToggle').click(function(){
+                $('#div1').toggle(1000);
+            })
+            // ========================
+            $('#btnfadeOut').click(function(){
+                $('#div2').fadeOut(1000);
+            })
+
+            $('#btnfadeIn').click(function(){
+                $('#div2').fadeIn(1000);
+            })
+
+            $('#btnfadeToggle').click(function(){
+                $('#div2').fadeToggle(1000)
+            })
+
+            $('#btnfadeTo').click(function(){
+                $('#div2').fadeTo(1000, 0.4)
+            })
+
+            // =======================================
+            $('#btnSlideUp').click(function(){
+                $('#div3').slideUp(1000);
+            })
+
+            $('#btnSlideDown').click(function(){
+                $("#div3").slideDown(1000);
+            })
+
+            $('#btnSlideToggle').click(function(){
+                $('#div3').slideToggle(1000);
+            })
+
+            // =====================================
+            $('#btnAnimate').click(function(){
+                $('#div4').animate({'left':'200px','bottom': '200px', 'width': '100px','borderRadius':'50%' },1000);
+                 $('#div4').animate({'left':'400px', 'bottom':'0px', 'height':"100px"},1000)
+                 $('#div4').animate({'left':'0px', 'bottom':'0px', 'height':"100px"},1000)
+            })
+
+            $('#btnStop').click(function(){
+                $('#div4').stop()
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <button id="btnHide">Hide</button>
+    <button id="btnShow">Show</button>
+    <button id="btnToggle">Toggle</button>
+    <div id="div1">(id = div1)</div>
+    <hr>
+    <input type="button" value="fade Out" id="btnfadeOut">
+    <input type="button" value="fade In" id="btnfadeIn">
+    <input type="button" value="fade Toggle" id="btnfadeToggle">
+    <input type="button" value="fade To" id="btnfadeTo">
+    <div id="div2">HELLO2 (id = div2)</div>
+
+    <hr>
+    <input type="button" value="Slide Up" id="btnSlideUp">
+    <input type="button" value="Slide Down" id="btnSlideDown">
+    <input type="button" value="Slide Toggle" id="btnSlideToggle">
+    <div id="div3">BAY BAY (id=div3)</div>
+    <hr>
+    <input type="button" value="Animate" id="btnAnimate">
+    <input type="button" value="Stop" id="btnStop">
+
+    <div id='div4'>HOW ARE YOU? (id=div4)</div>
+</body>
+</html>
