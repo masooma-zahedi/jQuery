@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methods in jQuery</title>
+    <script src="js.jQuery/jquery-1.12.4.min.js"></script>
+    <style>
+        /* *{box-sizing: border-box;} */
+        body{
+            margin: 0;
+        }
+        p{
+            padding: 10px;
+            font-size: 20px;
+        }
+        #p2{
+            background-color: rgba(154, 223, 76, 0.795);
+            width: 400px;
+            margin: 20px auto;
+        }
+        #p2 a{
+            padding: 0 10px;
+        }
+        .bc{
+            background-color: rgb(52, 160, 106);
+        }
+        .fos{
+            font-size: 25px;
+        }
+        .colr{
+            color: rgb(90, 9, 165);
+        }
+        #p4{
+            width: 300px;
+            height: 200px;
+            border: 10px solid red;
+            background-color: rgb(235, 168, 168);
+            padding: 15px;
+            margin: 20px;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $('#btnHtml').click(function(){
+                alert($('#p1').html())
+            })
+
+            $('#btnSetHtml').click(function(){
+                $('#p1').html('hi its me <br/> <a href="#" class="link1">go to home</a>')
+            })
+
+            $('#btnText').click(function(){
+                alert($('#p1').text())
+            })
+            $('#btnSetText').click(function(){
+                $('.link1').text('LINK1');
+                $('.link1').css('color','red')
+            })
+
+            $('#btnValue').click(function(){
+                let fname = prompt('enter your name :')
+               $('#user1').val(fname)
+            })
+            // ==========================================
+            $('#btnAppend').click(function(){
+                let click1 = '<a href="#">click1</a>';
+
+                let click2 = $('<a href="#">click2</a>');
+                let click3 = document.createElement('a');
+                click3.href = '#';
+                click3.innerHTML ="click3"
+
+                $('#p2').append(click1,click2,click3);
+            })
+
+            $('#btnPrepend').click(function(){
+                let click1 = '<a href="#">click1</a>';
+
+                let click2 = $('<a href="#">click2</a>');
+                let click3 = document.createElement('a');
+                click3.href = '#';
+                click3.innerHTML ="click3"
+
+                $('#p2').prepend(click1,click2,click3);
+            })
+
+            $('#btnBefore').click(function(){
+                let click1 = '<a href="#">click1</a>';
+
+                let click2 = $('<a href="#">click2</a>');
+                let click3 = document.createElement('a');
+                click3.href = '#';
+                click3.innerHTML ="click3"
+
+                $('#p2').before(click1,click2,click3);
+            })
+
+            $('#btnAfter').click(function(){
+                let click1 = '<a href="#">click1</a>';
+
+                let click2 = $('<a href="#">click2</a>');
+                let click3 = document.createElement('a');
+                click3.href = '#';
+                click3.innerHTML ="click3"
+
+                $('#p2').after(click1,click2,click3);
+            })
+            // ========================================
+
+            $('#btnAttr').click(function(){
+                $('#p3 a').attr({'href':'https://www.bbc.com/persian','title':'bbc site'})
+            })
+
+            $('#btnAddclass').click(function(){
+                $('#p3').addClass('bc colr fos')
+            })
+
+                $('#btnRemove').click(function(){
+                    $('#p3').remove();
+                })
+
+                $('#btnEmpty').click(function(){
+                    $('#p3').empty();
+                })
+
+                // ==========================================
+                $('#btnwidth').click(function(){
+                    alert($('#p4').width())
+                })
+                $('#btnheight').click(function(){
+                    alert($('#p4').height())
+                })
+
+                $('#btn3').click(function(){
+                    alert($('#p4').innerWidth())
+                })
+
+                $('#btn4').click(function(){
+                    alert($('#p4').outerWidth())
+                })
+
+                $('#btn5').click(function(){
+                    $('#p4').width(400);
+                })
+
+
+        })
+    </script>
+</head>
+<body>
+    <input type="button" id="btnHtml" value="HTML">
+    <input type="button" id="btnSetHtml" value="SET-HTML">
+    <input type="button" id="btnText" value="TEXT">
+    <input type="button" id="btnSetText" value="SET-TEXT">
+    <p id="p1">
+        this is a para<br/>
+        <a href="#" class="link1">click me</a><br/>
+        <input type="button" value="value" id="btnValue"><input type="text" id="user1">
+    </p>
+    <hr>
+    <input type="button" value="Append" id="btnAppend">
+    <input type="button" value="prepend" id="btnPrepend">
+    <input type="button" value="Before" id="btnBefore">
+    <input type="button" value="After" id="btnAfter"><br>
+    <p id="p2">
+        it is second paragraph<br/>
+        <a href="#">link</a>
+    </p><hr>
+
+
+    <button id="btnAttr">Attr</button>
+    <button id="btnAddclass">Add Class</button>
+    <button id="btnRemove">Remove</button>
+    <button id="btnEmpty">Empty</button>
+    <p id="p3">
+        This is third paragraph<br/>
+        <a id="link2">link</a>
+    </p><hr>
+
+    <input type="button" value="width" id="btnwidth">
+    <input type="button" value="height" id="btnheight">
+    <input type="button" value="width+padding" id="btn3">
+    <input type="button" value="width+padding+border" id="btn4">
+    <input type="button" value="set width" id="btn5">
+    <p id="p4">
+        this is forth paragraph
+    </p>
+
+
+</body>
+</html>
