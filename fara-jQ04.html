@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transive in jQuery</title>
+    <script src="js.jQuery/jquery-1.12.4.min.js"></script>
+    <style>
+        *{box-sizing: border-box;}
+        body{
+            margin: 0;
+        }
+        #d1{
+            background-color: rgb(240, 152, 152);
+            width: 500px;
+            height: 500px;
+        }
+        #d2{
+            background-color: rgb(231, 230, 131);
+            width: 400px;
+            height: 400px;
+        }
+        #d3{
+            background-color: rgb(186, 241, 149);
+            width: 300px;height: 300px;
+        }
+        #p1{
+            background-color: rgb(142, 175, 236);
+            width: 200px;
+            height: 200px;
+        }
+        a{
+            padding: 10px;
+        }
+
+    </style>
+    <script>
+        $(document).ready(function(){
+            $('#btn1').click(function(){
+                $('#link1').parent().css('background-color','black')
+            })
+
+            $('#btn2').click(function(){
+                $('#link1').parents().css('background-color','black')
+            })
+
+            $('#btn3').click(function(){
+                $('#link1').parentsUntil('#d2').css('background-color','black')
+            })
+
+            $('#btn4').click(function(){
+                $('#link1').closest('#d2').css('background-color','black')
+            })
+
+            $('#btn5').click(function(){
+                $('#d2').children().css('background-color','black')
+            })
+
+            $('#btn6').click(function(){
+                $('#d1').find('div').css('background-color','black')
+            })
+
+            $('#btn7').click(function(){
+                $('#link1').siblings().css('color','#009f7a')
+            })
+            $('#btn8').click(function(){
+                $('#link1').next().css('color','#009f70')
+            })
+            $('#btn9').click(function(){
+                $('#link1').prev().css('color','#009f7a')
+            })
+            $('#btn10').click(function(){
+                $('#link1').nextAll().css('color','#ee09f7')
+            })
+            $('#btn11').click(function(){
+                $('#link5').prevAll().css('color','#ee0927')
+            })
+            $('#btn12').click(function(){
+                $('#link1').nextUntil("#link5").css('color','#ee0927')
+            })
+            $('#btn13').click(function(){
+                $('a').first().css('color','#ee0927')
+            })
+            $('#btn14').click(function(){
+                $('#p1').find('a').last().css('color','#ee0927')
+            })
+            $('#btn15').click(function(){
+                $('a').eq('3').css('color','#ee0927')
+            })
+            $('#btn16').click(function(){
+                $('a').filter(':odd').css('color','#ee0927')
+            })
+            $('#btn17').click(function(){
+                $('a').filter('.aa').css('color','#ee0927')
+            })
+
+
+
+
+        })
+    </script>
+</head>
+<body>
+    <input type="button" id="btn1" value="parent">
+    <input type="button" id="btn2" value="parents">
+    <input type="button" id="btn3" value="parentsUntil">
+    <input type="button" id="btn4" value="closest">
+    <input type="button" id="btn5" value="children">
+    <input type="button" id="btn6" value="find">
+    <!-- =============== -->
+    <input type="button" id="btn7" value="siblings">
+    <input type="button" id="btn8" value="Next">
+    <input type="button" id="btn9" value="Prev">
+    <input type="button" id="btn10" value="NextAll">
+    <input type="button" id="btn11" value="prevAll">
+    <input type="button" id="btn12" value="NextUntil">
+    <input type="button" id="btn13" value="First">
+    <input type="button" id="btn14" value="Last">
+    <input type="button" id="btn15" value="Eq">
+    <input type="button" id="btn16" value="Filter1">
+    <input type="button" id="btn17" value="Filter2">
+    <div id="d1">d1
+        <div id="d2">d2
+            <div id="d3">d3
+                <p id="p1">p
+                    <a href="#" id="link0">link0</a>
+                    <a href="#" id="link1">link1</a>
+                    <a href="#" class='aa' id="link2">link2</a>
+                    <a href="#" id="link3">link3</a>
+                    <a href="#" id="link4">link4</a>
+                    <a href="#" class="aa" id="link5">link5</a>
+                    <a href="#" id="link6">link6</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
